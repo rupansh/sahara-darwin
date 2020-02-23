@@ -15,14 +15,38 @@ When a device in sahara debug mode is the case, it will respond the initial hell
 
 ### Compiling
 
-    git clone https://github.com/openpst/sahara --recursive
+    git clone https://github.com/rupansh/sahara-darwin --recursive
     make
 
-Be sure to install the requied dependencies: boost and QT5.
+Be sure to install the requied dependencies: cmake, boost, QT5 and serial
+Building serial(hacky):
+	Assume you have pip with python2 installed
+	`brew install cmake`
+	`cd /tmp`
+	`git clone https://github.com/ros/catkin -b kinetic-devel`
+	`pip install catkin_pkg empy nose`
+	`cd catkin`
+	`mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release ../ && make && sudo make install`
+	`cp -rf /usr/local/lib/python2.7/site-packages/* ~/Library/Python/2.7/lib/python/site-packages/`
+	`cd /tmp`
+	`brew install --HEAD https://gist.githubusercontent.com/Kronuz/96ac10fbd8472eb1e7566d740c4034f8/raw/gtest.rb`
+	`git clone https://github.com/wjwwood/serial.git`
+	`cd serial`
+	`make`
+	`make install`
+	
+	
+Building:
+	Homebrew is required!
+	`brew install qt`
+	`echo export PATH="/usr/local/opt/qt/bin:$PATH"	>> ~/.zshrc" (or .bash_profile if you dont use zshrc)
+	`brew install boost`
+	`make`
+	`cp /tmp/usr/local/lib/libserial.dylib build/release/sahara.app/Contents/MacOS`
 
-On debian systems with aptitude install the following:
+Binary will be in build/release/sahara.app/Contents/MacOS
+Note: There are no qdloader_bulk drivers for macOS. Atleast I haven't found them. This tool is useless without the drivers.
 
-	sudo apt-get install build-essential qt5-default qt5-qmake libboost-dev
 
 ### Usage
 
