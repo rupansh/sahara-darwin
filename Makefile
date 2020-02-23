@@ -18,11 +18,11 @@ check:
 
 _debug:
 	$(QMAKE) -makefile -o ./build/Makefile sahara.pro "CONFIG+=debug" "CONFIG-=release"
-	$(MAKE) -C build -v VERBOSE=1
+	$(MAKE) -C build
 
 _release:
 	$(QMAKE) -makefile -o ./build/Makefile sahara.pro "CONFIG-=debug" "CONFIG+=release"
-	$(MAKE) -C build VERBOSE=1
+	$(MAKE) -C build
 
 clean:
 	rm -rf build/*
