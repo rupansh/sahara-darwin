@@ -26,6 +26,7 @@
 */
 
 #include "sahara_window.h"
+#include <serial/serial.h>
 
 using namespace OpenPST::GUI;
 

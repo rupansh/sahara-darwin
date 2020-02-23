@@ -19,7 +19,11 @@ INCLUDEPATH +=  $$BASE_DIR/include \
                 $$BASE_DIR/lib/libopenpst/include \
                 $$BASE_DIR/lib/libopenpst/lib/serial/include \
                 $$BASE_DIR/lib/libopenpst/lib/pugixml/src \
-                $$BASE_DIR/lib/gui-common/include 
+                $$BASE_DIR/lib/gui-common/include \
+		/tmp/usr/local/include
+
+LIBS += -L"/tmp/usr/local/lib" \
+	-lserial
 
 SOURCES += \
     $$BASE_DIR/src/sahara_window.cpp \

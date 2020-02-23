@@ -115,7 +115,7 @@ void SaharaImageTransferTask::run()
 		emit log(tmp.sprintf("Device is now requesting %lu bytes from image %02X - %s",
 			nextOffset.size,
 			nextOffset.imageId,
-			port.getNamedRequestedImage(nextOffset.imageId)
+			port.getNamedRequestedImage(nextOffset.imageId).c_str()
 		));
 	} else {
 		emit log("If there are no more images requested, you should send the done command.");
